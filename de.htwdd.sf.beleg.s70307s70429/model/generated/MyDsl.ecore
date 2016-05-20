@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myDsl" nsURI="http://www.htwdd.de/sf/beleg/s70307s70429/MyDsl"
+    nsPrefix="myDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Prologdsl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prologdsl" eType="#//Program"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ex" eType="#//Exquery"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause1" eType="#//Clause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause2" upperBound="-1"
+        eType="#//Clause" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exquery">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="q" eType="#//Query" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Query">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pred" upperBound="-1" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fact" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fact"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="q" eType="#//Query" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Predicate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pred" eType="#//Functor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t2" upperBound="-1" eType="#//Term"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Functor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//Ident"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Term">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="term" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Atom">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xx" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nel" eType="#//Nonemptylist"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nonemptylist">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="folge" eType="#//Folge"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atom" eType="#//Atom" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="term" eType="#//Term" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Folge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atom" eType="#//Atom" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atoms" upperBound="-1"
+        eType="#//Atom" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ident">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Number2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

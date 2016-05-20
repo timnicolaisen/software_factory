@@ -1,0 +1,59 @@
+grammar de.htwdd.sf.beleg.s70307s70429.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.htwdd.de/sf/beleg/s70307s70429/MyDsl"
+
+Prologdsl:
+	prologdsl=Program ex=Exquery;
+
+Program:
+	clause1=Clause (clause2+=Clause)*;
+
+Exquery:
+	'?-' q=Query '.';
+	
+Query:
+	query=Predicate (','pred+=Predicate)*;
+
+Clause:
+	fact=Predicate (clause1= (Fact | Rule));
+
+Fact:
+	{Fact}'.';
+	
+Rule:
+	 ':-' q=Query '.';
+
+Predicate:
+	pred=Functor '(' t=Term (',' t2+=Term )*')';
+
+Functor:
+	func=Ident;
+
+Term:
+	term=(Atom | List);
+
+Atom:
+xx=(Ident | Number2 | Variable2);
+
+List: 
+	{List} '['']' | nel=Nonemptylist;
+
+Nonemptylist: 
+	('[' folge=Folge ']') | ('[' atom=Atom '|' term=Term ']');
+
+Folge: 
+	atom=Atom (',' atoms+=Atom)*;
+	
+Ident:
+	name=ID;
+	
+Number2:
+	wert=INT;
+
+Variable2:
+	var1=VAR;	
+	
+terminal VAR:
+	('A' .. 'Z');
+	
+	
